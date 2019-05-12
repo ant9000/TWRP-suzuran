@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ ! -d src ]; then
+  mkdir src
+fi
+
+cd src
+
 if [ ! -d .repo ]; then
 
 # initialize repository
@@ -60,10 +66,13 @@ fi
 lunch omni_suzuran-userdebug
 make -j$(nproc) recoveryimage
 
+IMG=$(date +"%Y%m%d")-TWRP-3.3.0-suzuran-recovery.img
+cp $OUT/recovery.img ../$IMG
+
 cat <<EOF
 
 You can now flash your new recovery image with:
 
-   sudo fastboot flash recovery $OUT/recovery.img
+   sudo fastboot flash recovery $IMG
 
 EOF
