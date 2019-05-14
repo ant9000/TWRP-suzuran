@@ -16,17 +16,16 @@ mkdir .repo/local_manifests
 cat >.repo/local_manifests/sony-suzuran.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote  name="greyleshy"
-           fetch="https://github.com/GreyLeshy" />
-  <project path="device/sony/suzuran" name="android_sony_kitakami_twrp" remote="greyleshy" revision="suzuran" />
+  <remote name="ant9000" fetch="https://github.com/ant9000" />
+  <project path="device/sony/suzuran" name="android_sony_kitakami_twrp"  remote="ant9000" revision="suzuran" />
+  <project path="kernel/sony/suzuran" name="android_kernel_sony_msm8994" remote="ant9000" revision="cm-14.1" />
 </manifest>
 EOF
 # create local manifest with password protected TWRP
 cat >.repo/local_manifests/ant9000-twrp.xml <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote  name="ant9000"
-           fetch="https://github.com/ant9000" />
+  <remote name="ant9000" fetch="https://github.com/ant9000" />
   <remove-project name="android_bootable_recovery" />
   <project path="bootable/recovery" name="android_bootable_recovery" remote="ant9000" revision="android-9.0" groups="pdk-cw-fs"/>
 </manifest>
