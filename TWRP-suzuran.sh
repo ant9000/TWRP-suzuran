@@ -65,7 +65,7 @@ fi
 lunch omni_suzuran-userdebug
 make -j$(nproc) recoveryimage
 
-IMG=$(date +"%Y%m%d")-TWRP-3.3.0-suzuran-recovery.img
+IMG=$(date +"%Y%m%d")-TWRP-3.3.1-suzuran-recovery.img
 cp $OUT/recovery.img ../$IMG
 
 cat <<EOF
